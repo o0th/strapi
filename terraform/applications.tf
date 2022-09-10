@@ -41,6 +41,12 @@ resource "digitalocean_app" "dev_strapi" {
       }
 
       env {
+        key   = "HOST"
+        value = "$${PUBLIC_URL}"
+        scope = "RUN_TIME"
+      }
+
+      env {
         key   = "DATABASE_HOST"
         value = "$${dev-strapi-database.HOSTNAME}"
         scope = "RUN_TIME"
