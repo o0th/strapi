@@ -1,3 +1,23 @@
+resource "random_string" "app_keys" {
+  length  = 64
+  special = false
+}
+
+resource "random_string" "token_salt" {
+  length  = 64
+  special = false
+}
+
+resource "random_string" "jwt_secret" {
+  length  = 64
+  special = false
+}
+
+resource "random_string" "jwt_admin_secret" {
+  length  = 64
+  special = false
+}
+
 resource "digitalocean_app" "dev_strapi" {
   spec {
     name   = "dev-strapi"
@@ -53,6 +73,30 @@ resource "digitalocean_app" "dev_strapi" {
       env {
         key   = "NODE_ENV"
         value = "production"
+        scope = "RUN_TIME"
+      }
+
+      env {
+        key   = "APP_KEYS"
+        value = random_string.app_keys.result
+        scope = "RUN_TIME"
+      }
+
+      env {
+        key   = "API_TOKEN_SALT"
+        value = random_string.token_salt.result
+        scope = "RUN_TIME"
+      }
+
+      env {
+        key   = "ADMIN_JWT_SECRET"
+        value = random_string.jwt_admin_secret.result
+        scope = "RUN_TIME"
+      }
+
+      env {
+        key   = "JWT_SECRET"
+        value = random_string.jwt_secret.result
         scope = "RUN_TIME"
       }
 
