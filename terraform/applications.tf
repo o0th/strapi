@@ -12,7 +12,7 @@ resource "digitalocean_app" "dev_strapi" {
       instance_size_slug = "basic-xxs"
 
       run_command = "npm start"
-      http_port   = 3000
+      http_port   = 1337
 
       env {
         key   = "URL"
