@@ -31,8 +31,10 @@ resource "digitalocean_app" "dev_strapi" {
       instance_count     = 1
       instance_size_slug = "basic-xxs"
 
-      run_command = "npm start"
-      http_port   = 1337
+      build_command = "npm run build"
+      run_command   = "npm start"
+
+      http_port = 1337
 
       env {
         key   = "APP_URL"
