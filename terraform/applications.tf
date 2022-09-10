@@ -112,7 +112,7 @@ resource "digitalocean_app" "dev_strapi" {
         repo   = "o0th/strapi"
         branch = "master"
 
-        deploy_on_push = false
+        deploy_on_push = true
       }
 
       health_check {
