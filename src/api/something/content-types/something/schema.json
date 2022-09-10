@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "somethings",
+  "info": {
+    "singularName": "something",
+    "pluralName": "somethings",
+    "displayName": "something",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "testo": {
+      "type": "string"
+    },
+    "lol": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
