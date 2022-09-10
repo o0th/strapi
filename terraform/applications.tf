@@ -71,6 +71,12 @@ resource "digitalocean_app" "dev_strapi" {
       }
 
       env {
+        key   = "DATABASE_CA"
+        value = "$${dev-strapi-database.CA_CERT}"
+        scope = "RUN_TIME"
+      }
+
+      env {
         key   = "NODE_ENV"
         value = "production"
         scope = "RUN_TIME"
