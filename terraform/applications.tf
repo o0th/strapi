@@ -35,14 +35,8 @@ resource "digitalocean_app" "dev_strapi" {
       http_port   = 1337
 
       env {
-        key   = "URL"
-        value = "$${PUBLIC_URL}"
-        scope = "RUN_TIME"
-      }
-
-      env {
-        key   = "HOST"
-        value = "$${PUBLIC_URL}"
+        key   = "APP_URL"
+        value = "$${APP_URL}"
         scope = "RUN_TIME"
       }
 
@@ -116,7 +110,7 @@ resource "digitalocean_app" "dev_strapi" {
         repo   = "o0th/strapi"
         branch = "master"
 
-        deploy_on_push = true
+        deploy_on_push = false
       }
 
       health_check {
