@@ -36,37 +36,37 @@ resource "digitalocean_app" "dev_strapi" {
 
       env {
         key   = "URL"
-        value = "$${APP_URL}"
+        value = "$${PUBLIC_URL}"
         scope = "RUN_TIME"
       }
 
       env {
         key   = "DATABASE_HOST"
-        value = "$${db.HOSTNAME}"
+        value = "$${dev-strapi-database.HOSTNAME}"
         scope = "RUN_TIME"
       }
 
       env {
         key   = "DATABASE_PORT"
-        value = "$${db.PORT}"
+        value = "$${dev-strapi-database.PORT}"
         scope = "RUN_TIME"
       }
 
       env {
         key   = "DATABASE_NAME"
-        value = "$${db.DATABASE}"
+        value = "$${dev-strapi-database.DATABASE}"
         scope = "RUN_TIME"
       }
 
       env {
         key   = "DATABASE_USERNAME"
-        value = "$${db.USERNAME}"
+        value = "$${dev-strapi-database.USERNAME}"
         scope = "RUN_TIME"
       }
 
       env {
         key   = "DATABASE_PASSWORD"
-        value = "$${db.PASSWORD}"
+        value = "$${dev-strapi-database.PASSWORD}"
         scope = "RUN_TIME"
       }
 
